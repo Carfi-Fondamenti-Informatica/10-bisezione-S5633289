@@ -1,5 +1,4 @@
 #include <iostream>
-#include "lib.h"
 #include "math.h"
 
 using namespace std;
