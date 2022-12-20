@@ -4,47 +4,38 @@
 
 using namespace std;
 
-int init = 0;
 
-void funzione(float a, float b) {
+float f(float a) {
     float fa = pow(a, 2) * cos(a) + 1;
-    float fb = pow(b, 2) * cos(b) + 1;
-    float fx;
-    float x;
-    if (fa * fb >= 0 && init == 0) {
+    return fa;
+}
+
+
+int main() {
+    float a, b, x, err;
+    do {
         cout << "inserire estremi" << endl;
         cin >> a >> b;
-        funzione(a, b);
-    } else {
-        init = 1;
+    } while (f(a) * f(b) >= 0);
+
+    do {
         x = (a + b) / 2;
-        fx = pow(x, 2) * cos(x) + 1;
-        if (fx == 0) {
+        if (f(x) == 0) {
             cout << x << endl;
-            cout << fx;
+            cout << f(x);
+            return 0;
         } else {
-            float err;
-            if (fa * fb < 0) {
+            if (f(a) * f(b) < 0) {
                 b = x;
             } else {
                 a = x;
             }
             err = abs((b - a) / 2);
-            if (err >= 1e-6) {
-                funzione(a, b);
-            } else {
-                cout << int(x * 10000) / 10000.0 << endl;
-                cout << int(fx * 10000) / 10000.0 << endl;
-            }
         }
-    }
-}
+    } while (err >= 1e-6);
 
-int main() {
-    float a;
-    float b;
-    cout << "inserire estremi" << endl;
-    cin >> a >> b;
-    funzione(a, b);
+    cout << int(x * 10000) / 10000.0 << endl;
+    cout << int(f(x) * 10000) / 10000.0;
+
     return 0;
 }
