@@ -5,9 +5,9 @@
 using namespace std;
 
 
-float f(float a) {
-    float fa = pow(a, 2) * cos(a) + 1;
-    return fa;
+float f(float z) {
+    float fz = pow(z, 2) * cos(z) + 1;
+    return fz;
 }
 
 
@@ -34,8 +34,8 @@ int main() {
         }
     } while (err >= 1e-6);
 
-    cout << int(x * 10000) / 10000.0 << endl;
-    cout << int(f(x) * 10000) / 10000.0;
+    cout << x << endl;
+    cout << f(x);
 
     return 0;
 }
