@@ -1,18 +1,23 @@
 #include <iostream>
 #include "lib.h"
 #include "math.h"
+
 using namespace std;
 
+int init = 0;
 
 void funzione(float a, float b) {
     float fa = pow(a, 2) * cos(a) + 1;
     float fb = pow(b, 2) * cos(b) + 1;
     float fx;
-    if (fa * fb >= 0) {
+
+    if (fa * fb >= 0 && init == 0) {
         cout << "inserire estremi" << endl;
         cin >> a >> b;
+        init = 1;
         funzione(a, b);
     } else {
+        init = 1;
         float x = (a + b) / 2;
         if (x == 0) {
             fx = pow(x, 2) * cos(x) + 1;
@@ -29,8 +34,8 @@ void funzione(float a, float b) {
             if (err >= pow(10, -6)) {
                 funzione(a, b);
             } else {
-                cout << x;
-                cout << fx;
+                cout << x << endl;
+                cout << fx << endl;
             }
         }
     }
@@ -41,7 +46,6 @@ int main() {
     float b;
     cout << "inserire estremi" << endl;
     cin >> a >> b;
-    funzione(a,b);
+    funzione(a, b);
     return 0;
 }
-
