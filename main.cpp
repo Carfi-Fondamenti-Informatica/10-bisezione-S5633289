@@ -14,8 +14,8 @@ void funzione(float a, float b) {
     if (fa * fb >= 0 && init == 0) {
         cout << "inserire estremi" << endl;
         cin >> a >> b;
-        init = 1;
         funzione(a, b);
+        
     } else {
         init = 1;
         float x = (a + b) / 2;
