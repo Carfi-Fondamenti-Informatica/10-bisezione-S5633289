@@ -19,8 +19,8 @@ void funzione(float a, float b) {
     } else {
         init = 1;
         float x = (a + b) / 2;
+        fx = pow(x, 2) * cos(x) + 1;
         if (x == 0) {
-            fx = pow(x, 2) * cos(x) + 1;
             cout << x;
             cout << fx;
         } else {
