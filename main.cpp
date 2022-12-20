@@ -12,7 +12,7 @@ float f(float z) {
 
 
 int main() {
-    float a, b, x, err;
+    float a=0, b=0, x, err;
     do {
         cout << "inserire estremi" << endl;
         cin >> a >> b;
@@ -34,8 +34,7 @@ int main() {
         }
     } while (err >= 1e-6);
 
-    cout << x << endl;
-    cout << f(x);
+    cout <<  int(x * 10000) / 10000.0  << endl;
 
     return 0;
 }
