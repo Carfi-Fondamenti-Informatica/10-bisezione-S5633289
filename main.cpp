@@ -10,18 +10,17 @@ void funzione(float a, float b) {
     float fa = pow(a, 2) * cos(a) + 1;
     float fb = pow(b, 2) * cos(b) + 1;
     float fx;
-
+    float x;
     if (fa * fb >= 0 && init == 0) {
         cout << "inserire estremi" << endl;
         cin >> a >> b;
         funzione(a, b);
-        
     } else {
         init = 1;
-        float x = (a + b) / 2;
+        x = (a + b) / 2;
         fx = pow(x, 2) * cos(x) + 1;
-        if (x == 0) {
-            cout << x;
+        if (fx == 0) {
+            cout << x << endl;
             cout << fx;
         } else {
             float err;
@@ -31,11 +30,11 @@ void funzione(float a, float b) {
                 a = x;
             }
             err = abs((b - a) / 2);
-            if (err >= pow(10, -6)) {
+            if (err >= 1e-6) {
                 funzione(a, b);
             } else {
-                cout << x << endl;
-                cout << fx << endl;
+                cout << int(x * 10000) / 10000.0 << endl;
+                cout << int(fx * 10000) / 10000.0 << endl;
             }
         }
     }
